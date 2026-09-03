@@ -1,0 +1,392 @@
+/* ————————————————————————————————
+   AJ — portfolio
+   Type: Satoshi (self-hosted) → Hanken Grotesk → system
+   Palette: cream / ink / stone
+———————————————————————————————— */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('fonts/Satoshi-VariableItalic.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --cream: #F4F4F2;
+  --ink: #191918;
+  --stone: #6E6E6A;
+  --hairline: #DFDFDB;
+  --font: 'Satoshi', 'Hanken Grotesk', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --measure: 42rem;
+  --hl: #DBE2E8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ——— Nav ——— */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1.6rem clamp(1.25rem, 5vw, 3rem) 1.4rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.mark {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.mark-star {
+  font-size: 0.8em;
+  margin-left: 0.15em;
+  color: var(--stone);
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+}
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+/* ——— Page ——— */
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: clamp(4rem, 12vh, 8rem) 1.25rem 4rem;
+}
+
+.intro { max-width: 34rem; margin: 0 auto; }
+
+.intro-p {
+  font-size: clamp(1.35rem, 3.2vw, 1.65rem);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.3em;
+}
+.intro-p em { font-style: italic; }
+
+.inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--stone);
+  transition: text-decoration-color 0.15s ease;
+}
+.inline-link:hover,
+.inline-link:focus-visible {
+  text-decoration-color: var(--ink);
+}
+
+/* ——— Portrait ——— */
+
+.portrait {
+  margin: 4rem auto;
+  text-align: center;
+}
+.portrait img {
+  display: block;
+  margin: 0 auto;
+  width: 180px;
+  height: auto;
+  filter: grayscale(1) contrast(1.05);
+  background: var(--hairline);
+}
+.portrait figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ——— Index ——— */
+
+.kicker {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 1.25rem;
+}
+
+.index { margin-top: 4rem; }
+
+.index-list { list-style: none; }
+
+.index-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--hairline);
+  text-decoration: none;
+  color: var(--ink);
+}
+.index-list li:last-child .index-row {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.index-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.index-meta {
+  font-size: 0.8rem;
+  color: var(--stone);
+  text-align: right;
+  white-space: nowrap;
+}
+.index-row:hover .index-title,
+.index-row:focus-visible .index-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* ——— Footer ——— */
+
+.footer {
+  max-width: var(--measure);
+  margin: 0 auto;
+  width: 100%;
+  padding: 3rem 1.25rem 4rem;
+  border-top: 1px solid var(--hairline);
+}
+.footer-line { font-size: 1rem; margin-bottom: 0.35rem; }
+.footer-sub { font-size: 0.85rem; color: var(--stone); }
+.footer-loc {
+  margin-top: 2.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ——— Focus ——— */
+
+a:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ——— Project pages ——— */
+
+.page-kicker {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 3rem;
+}
+
+.project {
+  padding: 4.5rem 0;
+  border-top: 2px solid var(--ink);
+}
+.project:first-of-type { border-top: none; padding-top: 0; }
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.project-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.project-meta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  white-space: nowrap;
+}
+
+.project-dek {
+  font-size: 1.05rem;
+  color: var(--stone);
+  margin-bottom: 2rem;
+}
+
+.subhead {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin: 2rem 0 0.75rem;
+}
+
+.prose p {
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1em;
+  max-width: 32rem;
+}
+.prose .todo {
+  background: var(--hairline);
+  padding: 0 0.25em;
+}
+
+.press-line {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--stone);
+}
+
+/* ——— Screenshot strips ——— */
+
+.shots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 22rem;
+  margin: 2.5rem 0 3.5rem;
+}
+.shots .shot:nth-child(2) {
+  transform: translateY(1.5rem);
+}
+.shot {
+  aspect-ratio: 9 / 19.5;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+}
+.shot-placeholder {
+  aspect-ratio: 9 / 19.5;
+  background: var(--hairline);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+@media (max-width: 480px) {
+  .shots { gap: 8px; }
+}
+
+.case-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+/* ——— Margin-label sections ——— */
+
+.labeled {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.side-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  padding-top: 0.45em;
+}
+@media (max-width: 620px) {
+  .labeled { grid-template-columns: 1fr; gap: 0.75rem; }
+  .side-label { padding-top: 0; }
+}
+
+/* ——— Highlight ——— */
+
+.hl {
+  background: var(--hl);
+  padding: 0.05em 0.18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ——— Details (skills / languages / experience) ——— */
+
+.details { margin-top: 4.5rem; border-top: 2px solid var(--ink); padding-top: 2.5rem; }
+.details .labeled { margin-bottom: 2.25rem; }
+.details .labeled:last-child { margin-bottom: 0; }
+.details > .detail-line + .detail-line { margin-top: 0.75rem; }
+.details > .kicker { margin-bottom: 1.25rem; }
+.detail-line {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 30rem;
+}
+.detail-line + .detail-line { margin-top: 0.35rem; }
+.detail-line strong { font-weight: 500; }
+
+.index-coda .index-title {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--stone);
+}
